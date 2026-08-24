@@ -1,0 +1,38 @@
+policy:
+  id: langchain_path_safety
+  name: LangChain filesystem path safety
+  category: langchain
+  description: >
+    Rules that catch model-supplied filesystem paths reaching I/O calls inside a
+    LangChain tool without containment.
+
+rules:
+  - id: LC-023
+    title: TypeScript LangChain tool writes to the filesystem
+    severity: low
+    confidence: 0.5
+    language: typescript
+    applies_to:
+      - langchain_tool
+    scope: tool
+    match:
+      has_write_call: true
+    explanation: >
+      This LangChain.js tool writes to the filesystem. If the path or the
+      contents derive from the tool's arguments, the model chooses both, and a
+      prompt injection can steer the write at any file the Node process can
+      reach. The injection route is the ordinary one in this framework rather
+      than an exotic case: a retrieval chain feeds fetched documents into the
+      same context the model plans from, so text in a page or a knowledge-base
+      record can supply the filename the model then passes here. The Zod schema
+      does not help — it constrains the argument's type, not the region of the
+      filesystem it points at, so a traversal payload validates cleanly.
+      (Coarse signal — it flags any filesystem write, not only unnormalized
+      paths, because TypeScript path-normalization analysis is not yet wired.
+      Confirm the path is genuinely model-supplied before acting.)
+    fix: >
+      Confine writes to a dedicated working directory: resolve the final path,
+      verify it stays under that root before writing, and reject absolute paths
+      and any input containing "..". Where the tool only ever writes generated
+      names, derive the filename from an id rather than accepting a path from
+      the model at all.
