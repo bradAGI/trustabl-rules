@@ -66,9 +66,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "claude_sdk/repo.yaml": {
-      "sha256": "11a3e66db35ba990ed1b853f2ea217b1647b8b9226a98aeb38d8b9ccabeddc72",
-      "attested_at": "2026-08-17",
-      "attested_commit": "5cf9c288e82b05217020bd023e38b6aa41d3ba95"
+      "sha256": "2992a3067f1ad3510131f0ba367e65e3edfb794cf02c4cfcfa645074b59b31b3",
+      "attested_at": "2026-09-07",
+      "attested_commit": "8ec802016f6211b47227370edf04deb1dc56e931"
     },
     "claude_sdk/repo_hygiene.yaml": {
       "sha256": "64f7548cf554cf1d6af17178040ec6b13b11388b5cb69e558742fec68e2e3be6",
