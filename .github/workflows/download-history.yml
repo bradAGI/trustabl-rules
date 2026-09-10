@@ -60,7 +60,9 @@ jobs:
       - name: Record downloads and refresh the badge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPO: trustabl/trustabl-rules
+          # Resolve the repo at run time so a rename cannot silently point the
+          # counter at a repository that no longer exists.
+          TARGET_REPO: ${{ github.repository }}
           HISTORY_FILE: .github/stats/download-history.json
           BADGE_FILE: badges/downloads.json
         run: |
