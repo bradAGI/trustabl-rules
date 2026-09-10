@@ -2,9 +2,10 @@
 
 These instructions apply to any work on the detection rule packs in this
 repository. The packs here are pulled by the
-[Trustabl engine](https://github.com/trustabl/trustabl) at scan time; the rule
-**schema** and **predicate** implementations, plus the per-rule test harness,
-live in that engine repository. Links below labeled "engine repo" point there.
+[Trustabl engine](https://github.com/trustabl/agent-reliability-analyzer) at
+scan time; the rule **schema** and **predicate** implementations, plus the
+per-rule test harness, live in that engine repository. Links below labeled
+"engine repo" point there.
 
 ## Engine/rules split — read this first
 
@@ -21,7 +22,7 @@ live in that engine repository. Links below labeled "engine repo" point there.
 
 ## Required reading order before editing
 
-1. Schema reference (engine repo): [`internal/rules/schema.yaml`](https://github.com/trustabl/trustabl/blob/main/internal/rules/schema.yaml) — authoritative field reference.
+1. Schema reference (engine repo): [`internal/rules/schema.yaml`](https://github.com/trustabl/agent-reliability-analyzer/blob/main/internal/rules/schema.yaml) — authoritative field reference.
 2. [`README.md`](README.md) — conventions in this repo.
 3. The closest existing rule to what's being asked for — pattern example.
 
@@ -31,7 +32,7 @@ Do not skip step 1.
 
 - **Never invent YAML keys.** The schema is closed (`KnownFields(true)`). If a
   field you want does not exist in the engine's
-  [`internal/rules/schema.go`](https://github.com/trustabl/trustabl/blob/main/internal/rules/schema.go),
+  [`internal/rules/schema.go`](https://github.com/trustabl/agent-reliability-analyzer/blob/main/internal/rules/schema.go),
   extending the schema is a four-file change **in the engine repo**
   (schema.go + predicates.go + evaluator.go + schema.yaml), gated by a
   `manifest.yaml` `schema_version` bump here. Make the engine changes in one
@@ -147,7 +148,7 @@ Default sequence:
 5. Mirror the rule into the engine's `testdata/rules-fixture/` and add at
    minimum one fire case AND one silent case to `policyRuleCases` in the
    engine's
-   [`internal/rules/policies_test.go`](https://github.com/trustabl/trustabl/blob/main/internal/rules/policies_test.go).
+   [`internal/rules/policies_test.go`](https://github.com/trustabl/agent-reliability-analyzer/blob/main/internal/rules/policies_test.go).
    The `TestPolicyRules_AllRulesCovered` guard requires every shipped rule to
    appear in this table.
 6. Run `go test ./...` in the engine repo.
