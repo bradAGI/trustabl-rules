@@ -306,9 +306,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "openai_sdk/mcp_safety.yaml": {
-      "sha256": "1fbca02bb52ec97dba1cf4b1fc6d71c48670763d0f9e0bbded9f622ae3882b4d",
-      "attested_at": "2026-08-04",
-      "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
+      "sha256": "717e3269ca3c2ddcc38c184380f2a561b4dd8eb36718303eae43a364f3ff2f1c",
+      "attested_at": "2026-09-10",
+      "attested_commit": "96d33f3fbd2fbfac85f1e066ab600c0bf47e9f71"
     },
     "openai_sdk/network.yaml": {
       "sha256": "5a3bc64c84d013487ad591d2989847ac8eec579fa69c108c36adf731cf514b79",
