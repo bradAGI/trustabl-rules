@@ -124,3 +124,26 @@ rules:
       Review the unexercised constraints against actual usage: narrow grants
       nobody uses (the least-privilege win this surfaces), or extend the
       observation window before concluding anything.
+
+  - id: RT-006
+    title: Action observed under an identity the contract is not bound to
+    severity: high
+    confidence: 0.9
+    applies_to:
+      - conformance_summary
+    scope: runtime
+    match:
+      action_status_is:
+        - binding_mismatch
+    explanation: >
+      The span carried an identity binding (principal, workload, binding id)
+      that disagrees with the identity the contract was bound to. The
+      workload is running the agent under a principal or in a sandbox the
+      contract never named, so every ceiling compiled for the bound principal
+      (the data scope above all) is being applied to the wrong identity. The
+      runtime escalates the action; it does not bind it.
+    fix: >
+      Bind a contract for the identity actually running the agent (trustabl
+      contract bind), deploy that contract's binding line on the workload,
+      and treat the mismatch as an expansion that goes through review. Do
+      not widen the existing binding to cover the observed identity.
