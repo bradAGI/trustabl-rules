@@ -33,17 +33,17 @@ jobs:
           path: rules
 
       # Validate against the engine's rule schema. A coordinated change ships as
-      # paired PRs (one in trustabl/trustabl, one here) sharing a branch name, so
-      # check out the engine at the same-named branch when it exists, otherwise
-      # main. This mirrors the engine repo's own rules-sync job in reverse, and
-      # means a schema bump in the engine and the rules that use it validate
-      # together before either merges.
+      # paired PRs (one in trustabl/agent-reliability-analyzer, one here)
+      # sharing a branch name, so check out the engine at the same-named branch
+      # when it exists, otherwise main. This mirrors the engine repo's own
+      # rules-sync job in reverse, and means a schema bump in the engine and the
+      # rules that use it validate together before either merges.
       - name: Resolve engine ref
         id: engineref
         run: |
           ref="${{ github.head_ref }}"
           if [ -n "$ref" ] && git ls-remote --exit-code --heads \
-              https://github.com/trustabl/trustabl.git "$ref" >/dev/null 2>&1; then
+              https://github.com/trustabl/agent-reliability-analyzer.git "$ref" >/dev/null 2>&1; then
             echo "ref=$ref" >> "$GITHUB_OUTPUT"
           else
             echo "ref=main" >> "$GITHUB_OUTPUT"
@@ -52,7 +52,7 @@ jobs:
       - name: Checkout engine
         uses: actions/checkout@v4
         with:
-          repository: trustabl/trustabl
+          repository: trustabl/agent-reliability-analyzer
           ref: ${{ steps.engineref.outputs.ref }}
           path: engine
 

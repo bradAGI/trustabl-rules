@@ -1,6 +1,6 @@
 name: Download history
 
-# Weekly snapshot of trustabl/trustabl-rules cumulative release-asset downloads,
+# Weekly snapshot of trustabl/agent-reliability-rules cumulative release-asset downloads,
 # plus the shields endpoint the README badge reads.
 #
 # What this actually measures. The engine resolves rules over two release assets:
