@@ -90,6 +90,65 @@ rules:
       sandboxes.
 
   - id: CSDK-205
+    title: Claude Agent SDK session auto-approves edits with no tool deny-list
+    severity: medium
+    confidence: 0.7
+    applies_to:
+      - claude_sdk
+    scope: repo
+    match:
+      all:
+        - repo_claude_options_permission_mode_is:
+            - acceptEdits
+        - repo_claude_options_disallowed_tools_missing: true
+    explanation: >
+      A ClaudeAgentOptions(...) in this project sets permission_mode to
+      "acceptEdits", which auto-approves file writes and edits without a
+      prompt, and no construction in the project sets disallowed_tools. Claude
+      SDK's allowed_tools only auto-approves listed tools — it does not
+      restrict which tools can run, so an unlisted tool still executes,
+      falling back to whatever the current permission_mode allows. With
+      acceptEdits already removing the approval step for Write/Edit and no
+      deny-list to bound the rest of the tool surface, a prompt-injected or
+      mistaken model action can reach shell commands, network fetches, or any
+      other tool the session can see, with nothing short of a human noticing
+      to stop it.
+    fix: >
+      Pass disallowed_tools= to ClaudeAgentOptions(...), naming the tools this
+      session must never call — at minimum shell execution and any tool that
+      reaches the network or credentials. Keep acceptEdits if auto-approving
+      file edits is intentional, but pair it with an explicit deny-list so the
+      rest of the tool surface stays gated, or drop back to permission_mode
+      "default" if edits should prompt too.
+
+  - id: CSDK-206
+    title: Claude Agent SDK session sets no explicit max_turns limit
+    severity: low
+    confidence: 0.6
+    applies_to:
+      - claude_sdk
+    scope: repo
+    match:
+      repo_claude_options_max_turns_missing: true
+    explanation: >
+      No ClaudeAgentOptions(...) in this project sets max_turns, so the agent
+      loop runs to whatever ceiling the runtime applies by default rather than
+      to a bound sized for this task. A model that loops or oscillates —
+      retrying a failing tool, re-reading the same file, ping-ponging between
+      two steps — keeps consuming turns, tokens, and tool side effects until
+      that implicit ceiling is reached, and an implicit ceiling can shift
+      between SDK versions without any change on your side. An explicit cap
+      also turns a stuck run into a clean, observable stop instead of a slow
+      burn.
+    fix: >
+      Pass max_turns= to ClaudeAgentOptions(...), sized to the work the
+      session actually does — a handful of turns for a single-file edit, more
+      for a multi-step investigation. Treat hitting the cap as a signal to
+      surface and handle rather than to raise it: if a task legitimately
+      needs many turns, split it into bounded sub-sessions instead of
+      removing the bound.
+
+  - id: CSDK-207
     title: Project settings pre-approve side-effecting tools
     severity: high
     confidence: 0.8
@@ -120,29 +179,3 @@ rules:
       needs (e.g. "Write(src/generated/**)"). Prefer `ask` over `allow` for
       anything that writes or fetches: it keeps the workflow while preserving
       the checkpoint.
-  - id: CSDK-206
-    title: Claude Agent SDK session sets no explicit max_turns limit
-    severity: low
-    confidence: 0.6
-    applies_to:
-      - claude_sdk
-    scope: repo
-    match:
-      repo_claude_options_max_turns_missing: true
-    explanation: >
-      No ClaudeAgentOptions(...) in this project sets max_turns, so the agent
-      loop runs to whatever ceiling the runtime applies by default rather than
-      to a bound sized for this task. A model that loops or oscillates —
-      retrying a failing tool, re-reading the same file, ping-ponging between
-      two steps — keeps consuming turns, tokens, and tool side effects until
-      that implicit ceiling is reached, and an implicit ceiling can shift
-      between SDK versions without any change on your side. An explicit cap
-      also turns a stuck run into a clean, observable stop instead of a slow
-      burn.
-    fix: >
-      Pass max_turns= to ClaudeAgentOptions(...), sized to the work the
-      session actually does — a handful of turns for a single-file edit, more
-      for a multi-step investigation. Treat hitting the cap as a signal to
-      surface and handle rather than to raise it: if a task legitimately
-      needs many turns, split it into bounded sub-sessions instead of
-      removing the bound.

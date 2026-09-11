@@ -1,5 +1,11 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/trustabl/trustabl/main/assets/banner-rules.png" alt="Trustabl detection rules — the reliability and safety ruleset for AI agent SDKs" width="100%">
+  <img src="https://raw.githubusercontent.com/trustabl/agent-reliability-analyzer/main/assets/banner-rules.png" alt="Trustabl detection rules — the reliability and safety ruleset for AI agent SDKs" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/trustabl/agent-reliability-rules/releases"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Ftrustabl%2Fagent-reliability-rules%2Fmain%2Fbadges%2Frules.json" alt="Detection rule count"></a>
+  <a href="https://github.com/trustabl/agent-reliability-rules/releases"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Ftrustabl%2Fagent-reliability-rules%2Fmain%2Fbadges%2Fdownloads.json" alt="Rule bundle downloads"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache-2.0"></a>
 </p>
 
 The detection rule packs the Trustabl scanner reads at scan time. Apache-2.0,
@@ -11,7 +17,8 @@ Ten packs: Claude Agent SDK, Claude skills, OpenAI Agents SDK, Google ADK, MCP
 servers, LangChain / LangGraph, CrewAI, AutoGen, Pydantic AI, and the Vercel AI
 SDK — across tool, agent, subagent, skill, and repo scopes.
 
-These packs belong to [**Trustabl**](https://github.com/trustabl/trustabl), the
+These packs belong to
+[**Trustabl**](https://github.com/trustabl/agent-reliability-analyzer), the
 open-source tool for AI agent reliability — it finds and fixes reliability,
 safety, and security defects in agent code. The engine resolves them from this
 repository at scan time (cloning to a local cache, with offline fallback), so
@@ -124,8 +131,8 @@ directory just works once the engine recognizes its `category:` value.
 The rule schema (every accepted field, with annotations) and the predicate
 implementations live in the **engine** repository, not here:
 
-- Schema reference: [`internal/rules/schema.yaml`](https://github.com/trustabl/trustabl/blob/main/internal/rules/schema.yaml)
-- Schema types (authoritative): [`internal/rules/schema.go`](https://github.com/trustabl/trustabl/blob/main/internal/rules/schema.go)
+- Schema reference: [`internal/rules/schema.yaml`](https://github.com/trustabl/agent-reliability-analyzer/blob/main/internal/rules/schema.yaml)
+- Schema types (authoritative): [`internal/rules/schema.go`](https://github.com/trustabl/agent-reliability-analyzer/blob/main/internal/rules/schema.go)
 
 Read the schema reference before authoring a rule. The full rule-authoring
 contract — required fields, ID conventions, per-scope `applies_to` values,
