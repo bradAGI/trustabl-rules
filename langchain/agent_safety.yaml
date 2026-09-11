@@ -9,7 +9,7 @@ policy:
 rules:
   - id: LC-101
     title: LangChain agent wires a code-execution or shell built-in tool
-    severity: critical
+    severity: high
     confidence: 0.85
     language: python
     applies_to:
