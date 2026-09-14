@@ -36,9 +36,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "claude_sdk/agent_safety.yaml": {
-      "sha256": "40b6a4633bd71f32277c9dd8f306ab191afcb443fe502acd500857e2ca20289c",
-      "attested_at": "2026-08-04",
-      "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
+      "sha256": "c6c9a0d68c1aadfbc6a424d219a984aa2c0e419972e61604163e07a2d90134f3",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "claude_sdk/code_execution.yaml": {
       "sha256": "d4b5357b6f58c23c2b5a8c83ebdb3b6fa3fd9cda18a5ce097e73deae75fd249c",
@@ -66,9 +66,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "claude_sdk/repo.yaml": {
-      "sha256": "2992a3067f1ad3510131f0ba367e65e3edfb794cf02c4cfcfa645074b59b31b3",
-      "attested_at": "2026-09-07",
-      "attested_commit": "8ec802016f6211b47227370edf04deb1dc56e931"
+      "sha256": "01969639632d2592e859ef5f2abe9b29f80aa60be81c90bebd3955743f8856fb",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "claude_sdk/repo_hygiene.yaml": {
       "sha256": "64f7548cf554cf1d6af17178040ec6b13b11388b5cb69e558742fec68e2e3be6",
@@ -86,9 +86,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "claude_sdk/subagent_safety.yaml": {
-      "sha256": "5da4b1a5babe4bc92e279ee81bf5fb6fe5f12ceb13f1ace05b2ff04ec83b6ecc",
-      "attested_at": "2026-08-04",
-      "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
+      "sha256": "f58ddf6a3453a27e5098522ba696b1567220b80cf462bfe7b6b9ef76f4e1e968",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "claude_sdk/tool_definition.yaml": {
       "sha256": "87f3926092883ccebaee9150fbca0c0519688a1f3b1e88e1c09bee42204ccd76",
@@ -201,9 +201,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "langchain/agent_safety.yaml": {
-      "sha256": "33e1b69f27836f31e57fabb062b86c3a7ab18c32e93279bc3336480f0f863209",
-      "attested_at": "2026-08-04",
-      "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
+      "sha256": "89b963c7a62e0041ec11c7214fdc7b24ebe1ea05400227f345c8beb76b31ad99",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "langchain/code_execution.yaml": {
       "sha256": "d0f1f7b0e686957a976090c038ad3316a7d1df2d161d620b3e719c72a1879121",
@@ -276,9 +276,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "openai_sdk/agent_safety.yaml": {
-      "sha256": "5a726b12748341b36995e360bf2274a9a0a92b1d4dfdddc9bf976f077864f8d9",
-      "attested_at": "2026-08-24",
-      "attested_commit": "713cf65da855ec6e5b01a49fad63bf521b42f6d8"
+      "sha256": "e65762cb42b27660851168ce6a457b02e686f8ef80b3368d0cd0da777dfde2a2",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "openai_sdk/approvals.yaml": {
       "sha256": "b8bdf9f446985f6d0257f0b7d509bc9cd8d650d0abe0aaa9a57c77c9071a6b8b",
@@ -336,9 +336,9 @@
       "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
     },
     "openai_sdk/tool_definition.yaml": {
-      "sha256": "db3339aa77ea4a090c679f98c6d986943b75a9dd20091306d7824eebc2615884",
-      "attested_at": "2026-08-04",
-      "attested_commit": "cfdfd46913007bba389c3096c7c022417c5dac66"
+      "sha256": "5865d8be6b1ac1d1d3e7401182ace19235f4864368481d3cc5d2e837acd5e90e",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     },
     "openai_sdk/tracing.yaml": {
       "sha256": "f5eb7a982c64e4dbfae1eccb9a01ea8930cef16954fe7bfc93aec23754846115",
@@ -424,6 +424,31 @@
       "sha256": "74562fda2c14f047c7f17054dfc44964d3dbe236836d20e25f9e4e46f7318514",
       "attested_at": "2026-08-17",
       "attested_commit": "5cf9c288e82b05217020bd023e38b6aa41d3ba95"
+    },
+    "claude_skill/slash_command_safety.yaml": {
+      "sha256": "f3be81266d906701e9b2bd15510e6604c3f3a6f397d0aaeb0904b687cbb23423",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
+    },
+    "mcp/installed_package_behavior.yaml": {
+      "sha256": "7ed5c760291bf3b90af0cf76b36ae82ad1fb4fc6f78d0848f47a7dd72ec8822e",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
+    },
+    "nvidia_nat/agent_safety.yaml": {
+      "sha256": "0b917769138871192832ae2335e25f59e37920688d9c0b7def5f9d7187ebe472",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
+    },
+    "nvidia_nat/mcp.yaml": {
+      "sha256": "acb39c2d0fd6ecdba15feeb3f544d2cf7817994695a27c9e8250514425fe509b",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
+    },
+    "runtime/conformance.yaml": {
+      "sha256": "83a05b56819470d4a10c378d793e3190c9b5890d7d7e5266a886f0764dc898c9",
+      "attested_at": "2026-09-14",
+      "attested_commit": "ffb1c742fa190f80b342e5fd480065a9ac97fe65"
     }
   }
 }
